@@ -1,23 +1,292 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BackPack3D - Modelos 3D Educacionais</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3a0ca3;
+      --accent: #4cc9f0;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #2ecc71;
+      --warning: #f39c12;
+      --danger: #e74c3c;
+      --info: #3498db;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      padding: 0;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") center/cover;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+    
+    main {
+      padding: 2rem 0;
+    }
+    
+    .section {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .section-header {
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .section-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--light);
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .section-content {
+      padding: 0;
+    }
+    
+    iframe {
+      display: block;
+      width: 100%;
+      height: 500px;
+      border: 0;
+    }
+    
+    .biology .section-icon {
+      background: rgba(46, 204, 113, 0.1);
+      color: var(--success);
+    }
+    
+    .chemistry .section-icon {
+      background: rgba(52, 152, 219, 0.1);
+      color: var(--info);
+    }
+    
+    .geography .section-icon {
+      background: rgba(243, 156, 18, 0.1);
+      color: var(--warning);
+    }
+    
+    .physics .section-icon {
+      background: rgba(231, 76, 60, 0.1);
+      color: var(--danger);
+    }
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .footer-text {
+      margin-bottom: 1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+      
+      .section-header {
+        padding: 1rem;
+      }
+      
+      .section-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.2rem;
+      }
+      
+      iframe {
+        height: 400px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>🎒 BackPack3D - Modelos 3D Educacionais</h1>
-
-  <h2>🔬 Biologia</h2>
-  <iframe src="https://drive.google.com/embeddedfolderview?id=1Z-aam5RcqetILRsNe9xZkF0-tzHM2azi#grid" style="width:100%; height:600px; border:0;"></iframe>
-
-  <h2>⚗️ Química</h2>
-  <iframe src="https://drive.google.com/embeddedfolderview?id=1GDik6qC2GPL-e2qQ-rpqIH702FCF5Yy-#grid" style="width:100%; height:600px; border:0;"></iframe>
-
-  <h2>🌍 Geografia</h2>
-  <iframe src="https://drive.google.com/embeddedfolderview?id=1UuHi9Mo90P7bqMelYQ3WTcai0H_QSlMp#grid" style="width:100%; height:600px; border:0;"></iframe>
-
-  <h2>🧲 Física</h2>
-  <iframe src="https://drive.google.com/embeddedfolderview?id=1Awj4Ix9YL4WXnzYywTLHUH33e7JqtWds#grid" style="width:100%; height:600px; border:0;"></iframe>
-</body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <h1>🎒 BackPack3D</h1>
+        <p class="tagline">Modelos 3D Educacionais para Aprendizado Interativo</p>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container">
+    <section class="section biology">
+      <div class="section-header">
+        <div class="section-icon">🔬</div>
+        <h2 class="section-title">Biologia</h2>
+      </div>
+      <div class="section-content">
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1Z-aam5RcqetILRsNe9xZkF0-tzHM2azi#grid"></iframe>
+      </div>
+    </section>
+    
+    <section class="section chemistry">
+      <div class="section-header">
+        <div class="section-icon">⚗️</div>
+        <h2 class="section-title">Química</h2>
+      </div>
+      <div class="section-content">
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1GDik6qC2GPL-e2qQ-rpqIH702FCF5Yy-#grid"></iframe>
+      </div>
+    </section>
+    
+    <section class="section geography">
+      <div class="section-header">
+        <div class="section-icon">🌍</div>
+        <h2 class="section-title">Geografia</h2>
+      </div>
+      <div class="section-content">
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1UuHi9Mo90P7bqMelYQ3WTcai0H_QSlMp#grid"></iframe>
+      </div>
+    </section>
+    
+    <section class="section physics">
+      <div class="section-header">
+        <div class="section-icon">🧲</div>
+        <h2 class="section-title">Física</h2>
+      </div>
+      <div class="section-content">
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1Awj4Ix9YL4WXnzYywTLHUH33e7JqtWds#grid"></iframe>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">© 2023 BackPack3D - Todos os direitos reservados</p>
+        <p>Recursos educacionais 3D para professores e estudantes</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📱</a>
+          <a href="#" class="social-link">📧</a>
+          <a href="#" class="social-link">🌐</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94022f5814c6d81f',t:'MTc0NzMwNzM4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
